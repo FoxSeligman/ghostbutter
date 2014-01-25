@@ -1,0 +1,20 @@
+-main ApplicationMain 
+-lib openfl
+-lib openfl-native
+-lib hxlibc
+-lib HaxePunk
+-lib HaxePunkTmx
+-lib nape
+-cp src
+-D tools=1.1.6
+-D openfl=1.1
+-D android
+-D mobile
+-cp bin/android/haxe
+-cpp bin/android/obj
+-D android
+-D android-9
+-debug
+--macro allowPackage("flash")
+--macro keep("Main")
+-D no-compilation

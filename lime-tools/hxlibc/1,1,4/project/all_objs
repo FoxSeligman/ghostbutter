@@ -1,0 +1,13 @@
+./obj/webos/libs/zlib/ZLib.o
+./obj/webos/.//thirdparty/zlib-1.2.3/adler32.o
+./obj/webos/.//thirdparty/zlib-1.2.3/crc32.o
+./obj/webos/.//thirdparty/zlib-1.2.3/infback.o
+./obj/webos/.//thirdparty/zlib-1.2.3/inflate.o
+./obj/webos/.//thirdparty/zlib-1.2.3/uncompr.o
+./obj/webos/.//thirdparty/zlib-1.2.3/compress.o
+./obj/webos/.//thirdparty/zlib-1.2.3/deflate.o
+./obj/webos/.//thirdparty/zlib-1.2.3/gzio.o
+./obj/webos/.//thirdparty/zlib-1.2.3/inffast.o
+./obj/webos/.//thirdparty/zlib-1.2.3/inftrees.o
+./obj/webos/.//thirdparty/zlib-1.2.3/trees.o
+./obj/webos/.//thirdparty/zlib-1.2.3/zutil.o

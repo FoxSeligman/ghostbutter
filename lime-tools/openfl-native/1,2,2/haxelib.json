@@ -1,0 +1,11 @@
+{
+	"name": "openfl-native",
+	"url": "http://www.openfl.org",
+	"license": "MIT",
+	"tags": [],
+	"description": "OpenFL support for native platforms",
+	"version": "1.2.2",
+	"releasenote": "Minor fixes",
+	"contributors": [ "singmajesty" ],
+	"dependencies": {}
+}

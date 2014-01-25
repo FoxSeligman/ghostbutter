@@ -1,0 +1,45 @@
+<xml>
+
+<set name="NO_PRECOMPILED_HEADERS" value="1" if="GCC_OLD" />
+<set name="USE_PRECOMPILED_HEADERS" value="gcc" unless="NO_PRECOMPILED_HEADERS"/>
+
+<set name="USE_GCC_FILETYPES" value="1"/>
+
+<linker id="static_link" exe="ar" unless="windows">
+  <ext value=".a"/>
+  <exe name="emar" if="emscripten" />
+  <fromfile value="" if="macos" />
+  <fromfile value="" if="GCC_OLD" />
+  <fromfile value="" if="iphone" />
+  <!-- <fromfile value="" if="emscripten" /> -->
+  <outflag value="-cr "/>
+  <outflag value="cr " if="emscripten" />
+  <!-- <outflag value="-o " if="emscripten" /> -->
+  <recreate value="1" if="iphone" />
+  <recreate value="1" if="emscripten" />
+  <ranlib name="ranlib" />
+  <ranlib name="emranlib" if="emscripten" />
+</linker>
+
+<set name="nostrip" value="1" if="debug"/>
+<set name="nostrip" value="1" if="dll_import"/>
+<set name="nostrip" value="1" if="dll_export"/>
+<set name="nostrip" value="1" if="emscripten"/>
+
+<stripper id="strip" exe="strip" unless="nostrip">
+  <exe name="strip"/>
+  <exe name="arm-none-linux-gnueabi-strip" if="webos" />
+  <exe name="arm-linux-androideabi-strip" if="android" />
+  <exe name="i386-linux-gnueabi-strip" if="tizen" />
+  <exe name="arm-linux-gnueabi-strip" if="tizen" unless="simulator" />
+  <exe name="ntox86-strip" if="blackberry" />
+  <exe name="ntoarmv7-strip" if="blackberry" unless="simulator" />
+  <flag value="-u" if="macos"/>
+  <flag value="-r" if="macos"/>
+  <flag value="-x" if="macos"/>
+  <flag value="-d" if="linux"/>
+</stripper>
+
+
+
+</xml>

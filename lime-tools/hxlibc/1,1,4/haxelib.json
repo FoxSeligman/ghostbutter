@@ -1,0 +1,13 @@
+{
+  "name": "hxlibc",
+  "url": "https://github.com/openfl/hxlibc",
+  "license": "MIT",
+  "tags": [],
+  "description": "hxlibc is an alternative Haxe C++ backend",
+  "version": "1.1.4",
+  "releasenote": "Emscripten fixes",
+  "contributors": ["singmajesty"],
+  "dependencies": {
+
+  }
+}

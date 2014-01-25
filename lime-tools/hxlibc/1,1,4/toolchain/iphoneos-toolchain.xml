@@ -1,0 +1,67 @@
+<xml>
+
+
+<echo value="Using iOS SDK ${IPHONE_VER}" if="VERBOSE"/>
+
+<set name="ARCH" value ="-v7" if="HXCPP_ARMV7" />
+<include name="gcc-toolchain.xml"/>
+<path name="${DEVELOPER_DIR}/Platforms/iPhoneOS.platform/Developer/usr/bin" />
+
+<compiler id="iPhoneOS" exe="g++" if="iphoneos">
+  <exe name="xcrun --sdk iphoneos${IPHONE_VER} g++" if="HXCPP_GCC" />
+  <exe name="xcrun --sdk iphoneos${IPHONE_VER} clang" />
+  <flag value="-c"/>
+  <cppflag value="-fvisibility-inlines-hidden"/>
+  <pchflag value="-x" />
+  <pchflag value="c++-header" />
+  <flag value="-stdlib=libc++" unless="HXCPP_GCC" />
+  <flag value="-g" if="debug"/>
+  <flag value="-O2" unless="debug"/>
+  <flag value="-arch"/>
+  <flag value="armv6" unless="HXCPP_ARMV7" />
+  <flag value="armv7" if="HXCPP_ARMV7" />
+  <flag value="-isysroot"/>
+  <flag value="${DEVELOPER_DIR}/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS${IPHONE_VER}.sdk"/>
+  <!-- <flag value="-miphoneos-version-min=3.0" if="HXCPP_GCC" unless="HXCPP_ARMV7" />
+  <flag value="-miphoneos-version-min=5.0" if="HXCPP_ARMV7" /> -->
+  <flag value="-miphoneos-version-min=5.0" unless="HXCPP_GCC" />
+  <flag value="-fobjc-arc" if="OBJC_ARC" />
+  <flag value="-DOBJC_ARC" if="OBJC_ARC" />
+  <flag value="-Wno-parentheses" />
+  <flag value="-Wno-null-dereference" unless="HXCPP_GCC"/>
+  <flag value="-Wno-unused-value" />
+  <flag value="-Wno-bool-conversion" unless="HXCPP_GCC"/>
+  <flag value="-fvisibility=hidden"/>
+  <flag value="-fno-stack-protector"/>
+  <flag value="-DIPHONE"/>
+  <flag value="-DIPHONEOS"/>
+  <include name="common-defines.xml" />
+  <flag value="-DHXCPP_BIG_ENDIAN" if="HXCPP_BIG_ENDIAN"/>
+  <flag value="-I${HXCPP}/include"/>
+  <cppflag value="-frtti"/>
+  <outflag value="-o"/>
+  <ext value=".o"/>
+  <objdir value="obj/iphoneos${ARCH}/" unless="debug"/>
+  <objdir value="obj/iphoneos-dbg${ARCH}/" if="debug"/>
+</compiler>
+
+<linker id="dll" exe="g++" >
+  <exe name="xcrun --sdk iphoneos${IPHONE_VER} g++" if="HXCPP_GCC" />
+  <exe name="xcrun --sdk iphoneos${IPHONE_VER} clang" />
+  <flag value="-stdlib=libc++" unless="HXCPP_GCC" />
+  <flag value="-dynamiclib"/>
+  <flag value="-arch"/>
+  <flag value="armv6" unless="HXCPP_ARMV7" />
+  <flag value="armv7" if="HXCPP_ARMV7" />
+  <flag value="-isysroot"/>
+  <flag value="${DEVELOPER_DIR}/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS${IPHONE_VER}.sdk"/>
+  <flag value="-Wl,-undefined,dynamic_lookup"/>
+  <flag value="-fpic"/>
+  <flag value="-fPIC"/>
+  <flag value="-fvisibility=hidden"/>
+  <ext value=".ios.dylib"/>
+  <outflag value="-o "/>
+</linker>
+
+
+</xml>

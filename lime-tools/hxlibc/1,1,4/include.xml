@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension>
+	
+	<section unless="display || neko">
+		
+		<ndll name="std" />
+		<ndll name="regexp" />
+		<ndll name="zlib" />
+		
+	</section>
+	
+</extension>

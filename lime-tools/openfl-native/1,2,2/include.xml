@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension>
+	
+	<echo value="Warning: Including &quot;openfl-native&quot; on a target platform that is not native" unless="native" />
+	
+	<set name="openfl" />
+	<include haxelib="lime" />
+	
+	<templatePath name="templates" />
+	
+</extension>

@@ -1,0 +1,11 @@
+{
+	"name": "lime-tools",
+	"url": "https://github.com/openfl/lime-tools",
+	"license": "MIT",
+	"tags": [],
+	"description": "Command-line tools for Haxe projects",
+	"version": "1.2.8",
+	"releasenote": "Library fix",
+	"contributors": [ "singmajesty" ],
+	"dependencies": {}
+}
